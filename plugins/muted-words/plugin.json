@@ -1,0 +1,20 @@
+{
+  "manifest": 1,
+  "id": "muted-words",
+  "name": "Muted words",
+  "version": "1.0.0",
+  "description": "Hides messages that contain words you choose, on this device, with one click to see each one. It reads messages to find them, keeps nothing of them, and contacts no one.",
+  "author": { "name": "Zuna" },
+  "license": "MIT",
+  "source": "https://github.com/zuna-app/plugins/tree/main/plugins/muted-words",
+  "icon": "assets/icon.svg",
+  "main": "main.js",
+  "api": 1,
+  "permissions": ["messages.read", "messages.decorate"],
+  "contributes": {
+    "settings": [
+      { "key": "words", "type": "text", "label": "Words", "hint": "Separated by commas. A message with any of them, as a whole word, in any case, is hidden.", "placeholder": "spoiler, finale" },
+      { "key": "hide", "type": "switch", "label": "Hide them", "hint": "Off, a message with one is only marked.", "default": true }
+    ]
+  }
+}

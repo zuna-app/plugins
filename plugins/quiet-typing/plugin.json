@@ -1,0 +1,20 @@
+{
+  "manifest": 1,
+  "id": "quiet-typing",
+  "name": "Quiet typing",
+  "version": "1.0.0",
+  "description": "Keeps others from seeing that you're typing, and if you choose, that you've read their messages. It changes only what this device tells others: it reads no message and contacts no one.",
+  "author": { "name": "Zuna" },
+  "license": "MIT",
+  "source": "https://github.com/zuna-app/plugins/tree/main/plugins/quiet-typing",
+  "icon": "assets/icon.svg",
+  "main": "main.js",
+  "api": 1,
+  "permissions": ["activity.intercept"],
+  "contributes": {
+    "settings": [
+      { "key": "typing", "type": "switch", "label": "Don't say I'm typing", "hint": "Others won't see \"typing…\" while you write here.", "default": true },
+      { "key": "reads", "type": "switch", "label": "Don't mark messages read", "hint": "Others won't see you've read their messages, and your other devices won't either: they keep counting them as unread.", "default": false }
+    ]
+  }
+}

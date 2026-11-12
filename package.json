@@ -1,0 +1,17 @@
+{
+  "name": "zuna-plugins",
+  "private": true,
+  "license": "MIT",
+  "description": "The marketplace of Zuna's native app: the source of every verified plugin, and the job that builds, signs and publishes them.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.22"
+  },
+  "scripts": {
+    "check": "node scripts/plugins.mjs check",
+    "publish-plugins": "node scripts/plugins.mjs publish"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

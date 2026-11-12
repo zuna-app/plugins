@@ -1,0 +1,34 @@
+# Publishes what's merged: builds each plugin version not yet published from its source, signs it
+# and a new index with the plugins' key, and uploads them to the `plugins` release, which the app
+# reads. Only this job reads the key, from the `publish` environment, and only on main.
+name: Publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "plugins/**"
+      - "revoked.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: publish
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: node scripts/plugins.mjs publish
+        env:
+          PLUGIN_SIGNING_KEY: ${{ secrets.PLUGIN_SIGNING_KEY }}
+          GH_TOKEN: ${{ github.token }}

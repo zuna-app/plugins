@@ -1,0 +1,23 @@
+{
+  "manifest": 1,
+  "id": "text-shortcuts",
+  "name": "Text shortcuts",
+  "version": "1.0.0",
+  "description": "Slash commands for the faces people type by hand: /shrug, /tableflip, /unflip, /lenny and /disapprove, each put in the message box with what you wrote after it.",
+  "author": { "name": "Zuna" },
+  "license": "MIT",
+  "source": "https://github.com/zuna-app/plugins/tree/main/plugins/text-shortcuts",
+  "icon": "assets/icon.svg",
+  "main": "main.js",
+  "api": 1,
+  "permissions": [],
+  "contributes": {
+    "commands": [
+      { "id": "shrug", "title": "Shrug", "slash": "shrug" },
+      { "id": "tableflip", "title": "Flip a table", "slash": "tableflip" },
+      { "id": "unflip", "title": "Put the table back", "slash": "unflip" },
+      { "id": "lenny", "title": "Lenny", "slash": "lenny" },
+      { "id": "disapprove", "title": "Disapprove", "slash": "disapprove" }
+    ]
+  }
+}
